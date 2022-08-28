@@ -1,10 +1,36 @@
-import React from 'react'
+import _ from 'lodash'
+import React, { useState,useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { getPosts } from '../../actions/posts'
+import { postsSelector } from '../../selectors'
 import Card from '../Common/Card'
 import Search from '../Common/Search'
 import DataTable from '../DataTable'
 
 
+
+
 const  Home = () => {
+    const dispatch = useDispatch()
+    const [searchTerm, setSearchTerm] = useState('')
+    const [debounceSearchTerm, setDebounceSearchTerm] = useState('')
+
+    useEffect(()=>{
+        dispatch(getPosts(debounceSearchTerm))
+    },[dispatch,debounceSearchTerm])
+
+    const posts = useSelector(state=>postsSelector(state))
+    
+    const data = posts?posts.map(post=>({
+        title:post.title,
+        url:post.url,
+        points:post.points,
+        author:post.author,
+        num_comments:post.num_comments,
+        created_at:post.created_at,
+        objectID:post.objectID
+    })):[]
+
   return (
         <div className="container-fluid">
             <div className="page-container">
@@ -20,19 +46,13 @@ const  Home = () => {
                 <div className="row">
                     <div className="col-12">
                         <Card>
-                            <Search/>
+                            <Search
+                                searchTerm={searchTerm}
+                                setSearchTerm={setSearchTerm}
+                                setDebounceSearchTerm={setDebounceSearchTerm}
+                            />
                             <DataTable
-                                data={[
-                                    {
-                                        "title": "A Message to Our Customers",
-                                        "url": "http://www.apple.com/customer-letter/",
-                                        "points": 5771,
-                                        "author": "epaga",
-                                        "num_comments": 967,
-                                        "created_at": "2016-02-17T08:38:37.000Z",
-                                        "objectID":11116274
-                                    }
-                                ]}
+                                data={data}
                             />
                         </Card>
                     </div>

@@ -1,5 +1,5 @@
 import { apiRequest,API_SUCCESS,API_ERROR } from "../../../actions/api"
-import { POST, POSTS, POSTS_GET, POST_GET, setPost } from "../../../actions/posts"
+import { POST, POSTS, POSTS_GET, POST_GET, setPost, setPosts } from "../../../actions/posts"
 import {ROOT_URL} from '../../../config/'
 
 export const postsMiddleware = ({dispatch}) => next => (action) =>{
@@ -26,7 +26,7 @@ export const postsMiddleware = ({dispatch}) => next => (action) =>{
 
             
         case `${POSTS} ${API_SUCCESS}`:
-                dispatch(setPost(action.payload))
+                dispatch(setPosts(action.payload))
                 break;
 
         case `${POST} ${API_SUCCESS}`:

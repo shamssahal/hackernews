@@ -11,10 +11,10 @@ export const apiRequest = ({body,url, feature,method}) =>({
 })
 
 
-export const apiSuccess = (response,feature,message)=>({
+export const apiSuccess = (response,feature,status)=>({
     type:`${feature} ${API_SUCCESS}`,
     payload:response,
-    message:message,
+    status:status,
     meta:{feature}
 })
 

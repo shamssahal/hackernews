@@ -9,18 +9,24 @@ export const apiMiddleware = ({dispatch}) => next => async(action) =>{
         try{
             switch(action.meta.feature){
                 case POSTS:
+                    if(action.meta.method==='get'){
+                        resp = await axios.get(action.meta.url,{ params: {query:action.payload}});
+                        dispatch(apiSuccess(resp.data.hits,action.meta.feature,resp.status))                        
+                        
+                    }
+                    break;
                 case POST:
                     if(action.meta.method==='get'){
                         resp = await axios.get(action.meta.url,{ params: {query:action.payload}});
-                        console.log('resp = ',resp)
-                        dispatch(apiSuccess(resp.data.responseData,action.meta.feature,resp.data.responseStatus.message))                        
-                        break;
+                        console.log(resp)
+                        dispatch(apiSuccess(resp.data,action.meta.feature,resp.status))                        
                     }
-                    dispatch(apiSuccess(resp.data.responseData,action.meta.feature,resp.data.responseStatus.message))                        
+                    dispatch(apiSuccess(resp.data.responseData,action.meta.feature,resp.status))                        
                     break;
                 default:break; 
         }
     }catch(err){
+        console.log(err)
         dispatch(apiError(err,action.meta.feature))
     }
 }}

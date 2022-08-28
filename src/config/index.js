@@ -1,0 +1,1 @@
+export let ROOT_URL = 'https://hn.algolia.com/api/v1';

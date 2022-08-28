@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 const DataTable = ({data}) =>{
     const navigate = useNavigate()
     const handleOnclick = (id) =>{
-        navigate(`/${id}`)
+        navigate(`/post/${id}`)
     }
 
     const tableData = data?data.map(({
@@ -31,7 +31,7 @@ const DataTable = ({data}) =>{
         )
     ]):[]
   return (
-    <div className="row" style={{marginTop:'80px'}}>
+    <div className="row" style={{marginTop:'40px'}}>
         <div className="col-2"></div>
         <div className="col-8">
             <div className="tab-content">

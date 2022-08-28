@@ -38,14 +38,14 @@ const  Home = () => {
                     <div className="col-12">
                         <div className="page-title-box d-flex justify-content-center">
                             <h1 className="">
-                                Hacker News Search
+                                <span style={{color:'coral'}}>Hacker News</span> Search
                             </h1>
                         </div>
                     </div>
                 </div>
                 <div className="row">
                     <div className="col-12">
-                        <Card>
+                        <Card optionColor='true'>
                             <Search
                                 searchTerm={searchTerm}
                                 setSearchTerm={setSearchTerm}

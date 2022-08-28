@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route} from "react-router-dom";
 
 
 import Home from "./Components/Home";
+import Post from "./Components/Post";
 
 const App = () => {
     useEffect(() => {
@@ -18,6 +19,8 @@ const App = () => {
         <Router>
             <Routes>
                 <Route path="/" element={<Home/>} />
+                <Route exact path="/post/:postId" element={<Post/>} />
+                
             </Routes>
         </Router>
     );

@@ -1,7 +1,7 @@
 import _ from 'lodash'
 import React, { useState,useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { getPosts } from '../../actions/posts'
+import { getPosts, setPost } from '../../actions/posts'
 import { postsSelector } from '../../selectors'
 import Card from '../Common/Card'
 import Search from '../Common/Search'
@@ -16,6 +16,7 @@ const  Home = () => {
     const [debounceSearchTerm, setDebounceSearchTerm] = useState('')
 
     useEffect(()=>{
+        dispatch(setPost({}))
         dispatch(getPosts(debounceSearchTerm))
     },[dispatch,debounceSearchTerm])
 

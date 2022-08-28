@@ -18,7 +18,7 @@ export const postsMiddleware = ({dispatch}) => next => (action) =>{
             dispatch(apiRequest({
                 body:action.payload,
                 config:{},
-                url:`${ROOT_URL}/item/${action.payload}`,
+                url:`${ROOT_URL}/items/${action.payload}`,
                 method:'get',
                 feature:POST
             }))

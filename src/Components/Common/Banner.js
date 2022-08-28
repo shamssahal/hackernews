@@ -8,7 +8,7 @@ const Banner = ({
   return (
             <div className="row">
                 <div className="col-12">
-                    <div className="card bg-secondary">
+                    <div className="card" style={{backgroundColor:'coral'}}>
                         <div className="card-body profile-user-box">
                             <div className="row align-items-center">
                                 <div className="col-12">
@@ -17,12 +17,12 @@ const Banner = ({
                                             <div className="col-9">
                                                 <div className="row d-flex flex-col">
                                                     
-                                                    <h1 className="mt-1 mb-1 text-white">
+                                                    <h1 className="mt-1 mb-1 ">
                                                         {primaryData} 
                                                     </h1>
                                                 </div>
                                                 
-                                                <h3 className="text-white-50 mb-1">
+                                                <h3 className="text-white mb-1">
                                                     {secondaryData}
                                                 </h3>
                                         

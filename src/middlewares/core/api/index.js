@@ -17,11 +17,11 @@ export const apiMiddleware = ({dispatch}) => next => async(action) =>{
                     break;
                 case POST:
                     if(action.meta.method==='get'){
-                        resp = await axios.get(action.meta.url,{ params: {query:action.payload}});
+                        resp = await axios.get(action.meta.url);
                         console.log(resp)
                         dispatch(apiSuccess(resp.data,action.meta.feature,resp.status))                        
                     }
-                    dispatch(apiSuccess(resp.data.responseData,action.meta.feature,resp.status))                        
+                    dispatch(apiSuccess(resp.data,action.meta.feature,resp.status))                        
                     break;
                 default:break; 
         }

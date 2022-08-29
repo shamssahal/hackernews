@@ -2,8 +2,8 @@ import React, { useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route} from "react-router-dom";
 
 
-import Home from "./components/Home";
-import Post from "./components/Post";
+import Home from "./Components/Home";
+import Post from "./Components/Post";
 
 const App = () => {
     useEffect(() => {

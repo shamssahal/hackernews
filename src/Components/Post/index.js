@@ -23,6 +23,7 @@ const  Post = () => {
             setLoader(false)
         }
     },[post])
+    
     if(loader){
         return <PendingLoader />
     }else{
@@ -31,17 +32,12 @@ const  Post = () => {
                 <div className="page-container">
                     <Banner
                         primaryData={post?post.title:'Loading...'}
+                        primaryText={post?post.text:null}
                         secondaryData={post?`By: ${post.author} | Points: ${post.points}`:''}
                     />
                     <div className="row">
                         <div className="col-12">
-                                <Comment 
-                                    createdAt={post.children?post.children.createdAt:''}
-                                    author={post.children?post.children.author:''}
-                                    text={post.children?post.children.text:''}
-                                    children={post.children || []}
-                                />
-                                                       
+                                {post.children.map((child,index)=><Comment key={index}comments={child} />)}
                         </div>
                     </div>
                 </div>

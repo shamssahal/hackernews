@@ -3,6 +3,7 @@ import React from 'react'
 // Common Banner Component for all Book Details and User Details Pages
 const Banner = ({
     primaryData,
+    primaryText,
     secondaryData,
 }) => {
   return (
@@ -20,6 +21,12 @@ const Banner = ({
                                                     <h1 className="mt-1 mb-1 ">
                                                         {primaryData} 
                                                     </h1>
+                                                </div>
+                                                <div>
+                                                    <h5 className="mt-1 mb-1 ">
+                                                        {primaryText}
+                                                    </h5>
+                                                    
                                                 </div>
                                                 
                                                 <h3 className="text-white mb-1">

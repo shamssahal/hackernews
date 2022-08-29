@@ -11,7 +11,6 @@ import DataTable from '../DataTable'
 
 const  Home = () => {
     const dispatch = useDispatch()
-    const [searchTerm, setSearchTerm] = useState('')
     const [debounceSearchTerm, setDebounceSearchTerm] = useState('')
 
     useEffect(()=>{
@@ -47,8 +46,6 @@ const  Home = () => {
                     <div className="col-12">
                         <Card optionColor='true'>
                             <Search
-                                searchTerm={searchTerm}
-                                setSearchTerm={setSearchTerm}
                                 setDebounceSearchTerm={setDebounceSearchTerm}
                             />
                             <DataTable

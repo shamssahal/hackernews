@@ -1,13 +1,13 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 
 import _ from 'lodash'
-import React,{useCallback} from 'react'
+import React,{useState,useCallback} from 'react'
 import './Search.css'
 
 
 
-const Search = ({searchTerm,setSearchTerm,setDebounceSearchTerm}) => {
-    
+const Search = ({setDebounceSearchTerm}) => {
+    const [searchTerm, setSearchTerm] = useState('')
     const debounce = useCallback(_.debounce((searchVal)=>{setDebounceSearchTerm(searchVal)},1000),[])
 
     const handleOnChange = (e)=>{

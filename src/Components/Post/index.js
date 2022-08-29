@@ -3,9 +3,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom'
 import { getPost } from '../../actions/posts';
 import { postSelector } from '../../selectors';
-import Banner from '../Common/Banner'
-import PendingLoader from '../Common/PendingLoader';
-import Comment from '../Common/Comment';
+import Banner from '../common/Banner'
+import PendingLoader from '../common/PendingLoader';
+import Comment from '../common/Comment';
 
 
 const  Post = () => {

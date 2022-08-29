@@ -2,9 +2,9 @@ import React, { useState,useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { getPosts, setPost } from '../../actions/posts'
 import { postsSelector } from '../../selectors'
-import Card from '../Common/Card'
-import Search from '../Common/Search'
-import DataTable from '../DataTable'
+import Card from '../common/Card'
+import Search from '../common/search'
+import DataTable from '../dataTable'
 
 
 

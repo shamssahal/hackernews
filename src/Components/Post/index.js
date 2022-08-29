@@ -5,6 +5,8 @@ import { getPost } from '../../actions/posts';
 import { postSelector } from '../../selectors';
 import Banner from '../Common/Banner'
 import PendingLoader from '../Common/PendingLoader';
+import Comment from '../Common/Comment';
+
 
 const  Post = () => {
     const {postId} = useParams();
@@ -33,7 +35,13 @@ const  Post = () => {
                     />
                     <div className="row">
                         <div className="col-12">
-                            
+                                <Comment 
+                                    createdAt={post.children?post.children.createdAt:''}
+                                    author={post.children?post.children.author:''}
+                                    text={post.children?post.children.text:''}
+                                    children={post.children || []}
+                                />
+                                                       
                         </div>
                     </div>
                 </div>

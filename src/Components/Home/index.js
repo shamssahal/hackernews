@@ -1,4 +1,3 @@
-import _ from 'lodash'
 import React, { useState,useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { getPosts, setPost } from '../../actions/posts'
